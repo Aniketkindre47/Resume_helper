@@ -68,8 +68,8 @@ def save_to_google_sheet(job_title, job_link, job_desc, modified_resume):
         datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
         job_title,
         job_link,
-        job_desc[:2000],         # truncate long JD
-        modified_resume[:2000]   # truncate long LLM response
+        job_desc,         # truncate long JD
+        modified_resume   # truncate long LLM response
     ])
 
 
