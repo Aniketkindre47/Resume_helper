@@ -13,12 +13,34 @@ AI Resume Matcher is a Streamlit web application that helps you optimize your re
 - **Simple UI:** Built with Streamlit for easy use.
 
 
-## How to use
+## Steps to Get Started
 
-Use app.py if you want to use a code as whole code.
-Generate a Gemini key and store it in a .env file.
-Enable Google Sheets API in Google Cloud, create a Service Account, and download the JSON key file.
-Place the JSON file in your project (keep it secret, add to `.gitignore`).
-Share your Google Sheet with the service account email (Editor access) that you will find in the credentials with .com ending.
+1. **Clone the repository** and navigate to the project directory.
+
+2. **Set up the Gemini API key:**
+   - Generate a Gemini API key from Google AI Studio.
+   - Create a `.env` file in the project root and add your key:
+     ```
+     GEMINI_API_KEY=your_gemini_api_key_here
+     ```
+
+3. **Enable Google Sheets API:**
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   - Enable the Google Sheets API and Google Drive API for your project.
+   - Create a Service Account and download the JSON credentials file.
+
+4. **Add credentials to your project:**
+   - Place the downloaded JSON key file in your project directory.
+   - Make sure to add the filename to your `.gitignore` to keep it secret.
+
+5. **Share your Google Sheet:**
+   - Create a Google Sheet to store results.
+   - Share the sheet with the service account email (ending with `.com`) found in your credentials file, giving it Editor access.
+
+6. **Run the app:**
+   - Use `app.py` to run the complete application:
+     ```
+     streamlit run app.py
+     ```
 
 
