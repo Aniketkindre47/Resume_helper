@@ -13,7 +13,7 @@ import os
 
 
 headers ={
-    "authorization" = st.secrets["GEMINI_API_KEY"]
+    "authorization" : st.secrets["GEMINI_API_KEY"]
 }
 
 # ---- CONFIG ----
