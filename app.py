@@ -8,9 +8,12 @@ import google.generativeai as genai
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
 # ---- CONFIG ----
-GEMINI_API_KEY = "AIzaSyA3fw8r3859Ot7lXJM5zYe90GH0tdqJexg"
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
