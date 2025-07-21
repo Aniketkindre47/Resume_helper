@@ -15,7 +15,7 @@ headers ={
 }
 
 # ---- CONFIG ----
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"], headers=headers)
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 # ---- UTILS ----
