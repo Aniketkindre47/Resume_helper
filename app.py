@@ -11,6 +11,11 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 
+
+headers ={
+    "authorization" = st.secrets["GEMINI_API_KEY"]
+}
+
 # ---- CONFIG ----
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
