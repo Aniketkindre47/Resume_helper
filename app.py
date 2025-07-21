@@ -8,6 +8,7 @@ import google.generativeai as genai
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+import json
 
 
 headers ={
@@ -59,9 +60,8 @@ def save_to_google_sheet(job_title, job_link, job_desc, modified_resume):
         "https://www.googleapis.com/auth/drive"
     ]
 
-    creds = ServiceAccountCredentials.from_json_keyfile_name(
-        "aqueous-abbey-457910-u5-f74637f4e96e.json", scope
-    )
+    service_account_info = json.loads(st.secrets["gcp_service_account"]["json"])
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
     client = gspread.authorize(creds)
 
     # Open the spreadsheet
@@ -76,10 +76,12 @@ def save_to_google_sheet(job_title, job_link, job_desc, modified_resume):
         modified_resume   # truncate long LLM response
     ])
 
-
+#You are an AI assistant that improves resumes.
+#Match this resume with the job description and rewrite it to better fit:
 def compare_and_suggest(jd_text, resume_text):
-    prompt = f"""You are an AI assistant that improves resumes.
-Match this resume with the job description and rewrite it to better fit:
+    prompt = f"""
+    Summarize JD in 10 words.
+
 
 Job Description:
 {jd_text}
