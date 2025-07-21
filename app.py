@@ -76,11 +76,11 @@ def save_to_google_sheet(job_title, job_link, job_desc, modified_resume):
         modified_resume   # truncate long LLM response
     ])
 
-#You are an AI assistant that improves resumes.
-#Match this resume with the job description and rewrite it to better fit:
+
 def compare_and_suggest(jd_text, resume_text):
     prompt = f"""
-    Summarize JD in 10 words.
+    You are an AI assistant that improves resumes.
+    Match this resume with the job description and rewrite it to better fit:
 
 
 Job Description:
@@ -115,6 +115,5 @@ if uploaded_file and st.button("Analyze"):
     st.text_area("Suggested Resume", new_resume, height=300)
 
     save_to_google_sheet(job_title, job_link, text, new_resume)
-    st.success("✅ Saved to Google Sheet!")
 
 
